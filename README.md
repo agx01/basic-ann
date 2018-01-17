@@ -1,5 +1,6 @@
 # basic-ann
-Basic Artificial Neural Network with Evaluations using Tensorflow in Python
+Basic Artificial Neural Network with Evaluations using Tensorflow in Python.
+
 Uses the sample Bank Data to find out if a customer will exit the bank
 
 build_ann.py : The file that contains the code for the Artificial Neural Network

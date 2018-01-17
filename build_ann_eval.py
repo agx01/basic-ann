@@ -52,7 +52,7 @@ def build_classifier():
 
 classifier = KerasClassifier(build_fn = build_classifier, batch_size = 10, epochs = 100)
 
-accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 10, n_jobs = -1)
+accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 10, n_jobs = 1)
 
 #Improving the ANN
 

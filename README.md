@@ -9,6 +9,10 @@ build_ann_eval.py : This file has the code to evaluate an ANN using mean and
                     variance. Then we have another function with some added 
                     dropout values to reduce overfitting and inrease variance.
 
+build_ann_tuning.py : This file uses the ANN created to tune the parameters
+                      like number of epochs, batch size, etc to improve 
+                      performance of the ANN.
+
 Churn_Modelling.csv : The sample data file
 
  1. The code takes the relevant columns of data from the Churn_Modelling.csv

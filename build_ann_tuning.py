@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -40,23 +41,17 @@ import keras
 from keras.models import Sequential
 from keras.layers import Dense
 
-#for evaluating the ANN
-from sklearn.model_selection import cross_val_score
-from keras.layers import Dropout
+#for tuning
+from sklearn.model_selection import GridSearchCV
+
 
 #for evaluating execution time
 import timeit
 
+#for tuning
+from sklearn.model_selection import GridSearchCV
+
 #Build ANN function
-def build_classifier_with_dropout():
-    classifier = Sequential()
-    classifier.add(Dense(output_dim = 6,init = 'uniform', activation = 'relu',input_dim = 11))
-    classifier.add(Dropout(p = 0.1))
-    classifier.add(Dense(output_dim = 6,init = 'uniform', activation = 'relu'))
-    classifier.add(Dropout(p = 0.1))
-    classifier.add(Dense(output_dim = 1,init = 'uniform', activation = 'sigmoid'))
-    classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
-    return classifier
 
 def build_classifier():
     classifier = Sequential()
@@ -66,14 +61,10 @@ def build_classifier():
     classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
     return classifier
 
-#Evaluating the ANN
-classifier = KerasClassifier(build_fn = build_classifier, batch_size = 10, epochs = 100)
+#Tuning the ANN
+classifier = KerasClassifier(build_fn = build_classifier)
 
-start_time = timeit.default_timer()
-accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 10, n_jobs = 1)
-elapsed = timeit.default_timer() - start_time
+#Improving the ANN
 
-mean = accuracies.mean()
-variance = accuracies.std()
 
 #Evaluating, Improving and Tuning the ANN ends

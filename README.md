@@ -5,6 +5,10 @@ Uses the sample Bank Data to find out if a customer will exit the bank
 
 build_ann.py : The file that contains the code for the Artificial Neural Network
 
+build_ann_eval.py : This file has the code to evaluate an ANN using mean and 
+                    variance. Then we have another function with some added 
+                    dropout values to reduce overfitting and inrease variance.
+
 Churn_Modelling.csv : The sample data file
 
  1. The code takes the relevant columns of data from the Churn_Modelling.csv

@@ -41,6 +41,7 @@ from sklearn.model_selection import cross_val_score
 import keras
 from keras.models import Sequential
 from keras.layers import Dense
+import timeit
 #Build ANN function
 def build_classifier():
     classifier = Sequential()
@@ -52,8 +53,12 @@ def build_classifier():
 
 classifier = KerasClassifier(build_fn = build_classifier, batch_size = 10, epochs = 100)
 
+start_time = timeit.default_timer()
 accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 10, n_jobs = 1)
+elapsed = timeit.default_timer() - start_time
 
+mean = accuracies.mean()
+variance = accuracies.std()
 #Improving the ANN
 
 

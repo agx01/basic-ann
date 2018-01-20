@@ -48,9 +48,6 @@ from sklearn.model_selection import GridSearchCV
 #for evaluating execution time
 import timeit
 
-#for tuning
-from sklearn.model_selection import GridSearchCV
-
 #Build ANN function
 
 def build_classifier(optimizer):
